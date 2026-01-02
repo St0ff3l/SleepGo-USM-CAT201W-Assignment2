@@ -17,19 +17,18 @@ const Hero = () => {
         <section id="hero" style={{
             minHeight: '100vh',
             display: 'flex',
-            alignItems: 'center', // 保持垂直居中
+            alignItems: 'center', // Keep content vertically centered.
 
-            /* === 修改部分开始：调整位置 === */
-            paddingTop: '60px',    // 给顶部导航栏留空间 (如果导航栏很高，这里可以适当增加)
-            paddingBottom: '120px', // 关键！底部加更多 padding，把视觉重心向上推
-            /* === 修改部分结束 === */
+            // Top/bottom padding reserves space for the fixed navbar and shifts the visual center slightly upward.
+            paddingTop: '60px',
+            paddingBottom: '120px',
 
             position: 'relative',
             overflow: 'hidden',
             backgroundColor: '#fff'
         }}>
 
-            {/* 背景装饰 (位置保持不变，自动适应) */}
+            {/* Decorative background gradients (positioned absolutely). */}
             <div style={{
                 position: 'absolute',
                 top: '-10%',
@@ -98,7 +97,7 @@ const Hero = () => {
                 </div>
             </div>
 
-            {/* 弹窗部分保持不变 */}
+            {/* Contact modal */}
             {showModal && (
                 <div style={{
                     position: 'fixed',

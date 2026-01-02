@@ -2,22 +2,22 @@ import React from 'react';
 
 const ServiceCard = ({ title, desc, icon }) => {
     return (
-        // 使用 CSS 类控制 Padding (电脑大/手机小)
+        // Uses a CSS utility class to control responsive padding (larger on desktop, smaller on mobile).
         <div className="reveal-item card-base service-card-padding" style={{
             cursor: 'pointer',
             textAlign: 'left'
         }}>
-            {/* Icon Container - 使用 CSS 类控制大小 */}
+            {/* Icon wrapper (sizing is controlled via CSS). */}
             <div className="service-icon-box">
                 {icon}
             </div>
 
-            {/* Title - 使用 CSS 类控制字体 */}
+            {/* Service title (typography is controlled via CSS). */}
             <h3 className="service-title">
                 {title}
             </h3>
 
-            {/* Description - 使用 CSS 类控制字体 */}
+            {/* Service description (typography is controlled via CSS). */}
             <p className="service-desc">
                 {desc}
             </p>

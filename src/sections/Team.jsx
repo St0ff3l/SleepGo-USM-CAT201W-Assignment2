@@ -30,7 +30,7 @@ const Team = () => {
                 <h2 className="section-title reveal-item">Meet the Team</h2>
                 <p className="section-subtitle reveal-item">The brains behind the code</p>
 
-                {/* 使用 global.css 里定义的 team-grid 类 */}
+                {/* Uses the shared team grid layout defined in global.css. */}
                 <div className="team-grid">
                     {team.map((t, index) => (
                         <TeamCard key={index} {...t} />

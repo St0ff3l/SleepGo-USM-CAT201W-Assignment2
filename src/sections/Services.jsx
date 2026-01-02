@@ -42,7 +42,7 @@ const Services = () => {
                 <h2 className="section-title reveal-item">Our Services</h2>
                 <p className="section-subtitle reveal-item">Comprehensive digital solutions</p>
 
-                {/* 使用 global.css 里定义的类名，不再写死 style */}
+                {/* Use the shared CSS grid class instead of inline layout styles. */}
                 <div className="services-grid">
                     {services.map((s, index) => (
                         <ServiceCard key={index} {...s} />

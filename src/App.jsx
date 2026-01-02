@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import './styles/global.css';
 
 function App() {
-    // 核心逻辑：监听滚动，触发动画
+    // Watch elements entering the viewport and add the "active" class to trigger reveal animations.
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -16,7 +16,7 @@ function App() {
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.1 }); // 元素出现 10% 时触发
+        }, { threshold: 0.1 }); // Trigger when at least 10% of the element is visible.
 
         const hiddenElements = document.querySelectorAll('.reveal-item');
         hiddenElements.forEach((el) => observer.observe(el));
