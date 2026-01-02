@@ -1,22 +1,22 @@
-/* src/styles/global.css */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
 :root {
-    --primary: #4338ca; /* 靛蓝 */
-    --secondary: #6366f1; /* 亮紫 */
-    --text-main: #111827;
-    --text-light: #6b7280;
+    --primary: #4338ca;
+    --secondary: #6366f1;
+    --text-main: #1f2937;
+    --text-light: #4b5563;
     --bg-white: #ffffff;
     --bg-off-white: #f9fafb;
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --radius: 12px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    --radius: 16px;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Add smooth scrolling for better user experience */
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -25,38 +25,31 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
+    font-size: 18px;
 }
 
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
-
-/* 通用布局容器 */
+/* Layout */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
 }
 
-/* 动画核心类：初始状态 */
-.reveal-item {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+/* Core modification here! */
+section {
+    padding: 3rem 0;
+    /* Key code to solve navbar overlapping issue: */
+    /* Ensure 100px space at the top when jumping to a section to accommodate the navbar */
+    scroll-margin-top: 100px;
 }
 
-/* 动画激活状态 */
-.reveal-item.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* 标题样式 */
+/* Title Styles */
 .section-title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 800;
     text-align: center;
-    margin-bottom: 1rem;
-    background: linear-gradient(to right, var(--primary), var(--secondary));
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -64,9 +57,31 @@ ul { list-style: none; }
 .section-subtitle {
     text-align: center;
     color: var(--text-light);
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
 }
 
-section {
-    padding: 6rem 0;
+/* Common Card Styles */
+.card-base {
+    background: var(--bg-white);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #f3f4f6;
+    transition: all 0.3s ease;
+    cursor: default;
 }
+
+.card-base:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: #e0e7ff;
+}
+
+/* Animation Classes */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+.reveal-item.active { opacity: 1; transform: translateY(0); }

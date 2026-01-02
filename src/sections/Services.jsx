@@ -1,19 +1,53 @@
 import React from 'react';
 import ServiceCard from '../components/ServiceCard';
+import { FaLaptopCode, FaMobileAlt, FaDraftingCompass, FaCloudUploadAlt, FaBrain, FaShieldAlt } from 'react-icons/fa';
 
 const Services = () => {
     const services = [
-        { title: "Web Development", desc: "React, Node.js, and modern styling.", icon: "💻" },
-        { title: "Mobile Apps", desc: "iOS and Android cross-platform solutions.", icon: "📱" },
-        { title: "UI/UX Design", desc: "Crafting intuitive and beautiful interfaces.", icon: "🎨" },
+        {
+            title: "Web Development",
+            desc: "Custom React.js & Node.js scalable solutions tailored to your business needs.",
+            icon: <FaLaptopCode />
+        },
+        {
+            title: "Mobile Apps",
+            desc: "Native iOS and Android cross-platform development with seamless performance.",
+            icon: <FaMobileAlt />
+        },
+        {
+            title: "UI/UX Design",
+            desc: "Crafting intuitive, user-centered digital experiences that users love.",
+            icon: <FaDraftingCompass />
+        },
+        {
+            title: "Cloud Solutions",
+            desc: "Secure cloud architecture and DevOps deployment.",
+            icon: <FaCloudUploadAlt />
+        },
+        {
+            title: "AI Integration",
+            desc: "Smart algorithms and data analytics integration.",
+            icon: <FaBrain />
+        },
+        {
+            title: "Cyber Security",
+            desc: "Enterprise-grade protection for your digital assets.",
+            icon: <FaShieldAlt />
+        }
     ];
 
     return (
-        <section id="services" style={{ background: 'var(--bg-off-white)' }}>
+        <section id="services">
             <div className="container">
                 <h2 className="section-title reveal-item">Our Services</h2>
-                <p className="section-subtitle reveal-item">What we do best</p>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+                <p className="section-subtitle reveal-item">Comprehensive digital solutions</p>
+
+                <div style={{
+                    display: 'grid',
+                    // Key change: Reduced gap to 1.5rem
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                    gap: '1.5rem'
+                }}>
                     {services.map((s, index) => (
                         <ServiceCard key={index} {...s} />
                     ))}
