@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import logo from '../assets/images/Logo.png'; // Ensure the asset path is correct
+import logo from '../assets/images/Logo.png';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -13,57 +13,69 @@ const Navbar = () => {
     const navStyle = {
         position: 'fixed',
         top: 0,
-        left: 0,
         width: '100%',
         zIndex: 1000,
+        padding: '1rem 0',
         transition: 'all 0.3s ease',
-        // When scrolled, use an opaque background with blur/shadow; otherwise keep it transparent.
-        // (Mobile-specific overrides can be applied via CSS if needed.)
-        backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(10px)' : 'none',
+        display: 'flex',
+        justifyContent: 'center',
+        backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.7)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(24px)' : 'none',
         boxShadow: scrolled ? '0 4px 6px -1px rgba(0,0,0,0.05)' : 'none',
         borderBottom: scrolled ? '1px solid rgba(0,0,0,0.05)' : 'none',
-        padding: '1rem 0',
+    };
+
+    const containerStyle = {
+        width: '100%',
+        maxWidth: '1200px',
+        padding: '0 24px',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        // Enable wrapping for mobile devices
+        flexWrap: 'wrap'
+    };
+
+    const brandStyle = {
+        display: 'flex',
+        alignItems: 'center',
+        gap: '12px',
+        cursor: 'pointer',
+        textDecoration: 'none'
+    };
+
+    const linkStyle = {
+        textDecoration: 'none',
+        color: '#0F172A',
+        fontWeight: '600',
+        fontSize: '1rem',
+        marginLeft: '1.5rem', // Reduced spacing slightly
+        cursor: 'pointer',
+        transition: 'color 0.3s ease'
     };
 
     return (
-        <nav style={navStyle} className="navbar-custom">
-            {/* Outer container for layout (max width, horizontal padding, and alignment). */}
-            <div className="container nav-container" style={{
-                width: '100%',
-                maxWidth: '1200px',
-                margin: '0 auto',
-                padding: '0 24px',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                flexWrap: 'wrap'
-            }}>
+        <nav style={navStyle}>
+            <div className="container" style={containerStyle}>
 
                 {/* Brand / Logo */}
-                <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '12px',
-                    cursor: 'pointer',
-                    textDecoration: 'none'
-                }} onClick={() => window.scrollTo(0,0)}>
+                <div style={brandStyle} onClick={() => window.scrollTo(0,0)}>
                     <img
                         src={logo}
                         alt="SleepGo Logo"
                         style={{ height: '45px', width: 'auto' }}
                     />
-                    <h1 style={{ fontWeight: '800', fontSize: '1.5rem', color: '#4338ca', margin: 0 }}>
+                    <h1 style={{ fontWeight: '800', fontSize: '1.5rem', color: '#4F46E5', margin: 0 }}>
                         SleepGo
                     </h1>
                 </div>
 
-                {/* Navigation links */}
-                <div className="nav-links" style={{ display: 'flex', alignItems: 'center' }}>
-                    <a href="#hero" className="nav-item">Home</a>
-                    <a href="#services" className="nav-item">Services</a>
-                    <a href="#team" className="nav-item">Team</a>
-                    <a href="#about" className="nav-item">About</a>
+                {/* Links - Added overflow handling for small screens */}
+                <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
+                    <a href="#hero" style={linkStyle}>Home</a>
+                    <a href="#services" style={linkStyle}>Services</a>
+                    <a href="#team" style={linkStyle}>Team</a>
+                    <a href="#about" style={linkStyle}>About</a>
                 </div>
             </div>
         </nav>

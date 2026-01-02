@@ -25,10 +25,10 @@ const Team = () => {
     ];
 
     return (
-        <section id="team" style={{ background: 'var(--bg-off-white)' }}>
+        <section id="team" style={{ background: 'transparent' }}>
             <div className="container">
                 <h2 className="section-title reveal-item">Meet the Team</h2>
-                <p className="section-subtitle reveal-item">The brains behind the code</p>
+                <p className="section-subtitle reveal-item" style={{ color: 'var(--text-light)' }}>The brains behind the code</p>
 
                 {/* Uses the shared team grid layout defined in global.css. */}
                 <div className="team-grid">

@@ -3,7 +3,11 @@ import React from 'react';
 const TeamCard = ({ name, role, image }) => {
     return (
         // Card container; spacing and layout are handled by the CSS class.
-        <div className="reveal-item card-base team-card-inner" style={{ overflow: 'hidden' }}>
+        <div 
+            className="reveal-item card-base team-card-inner" 
+            data-hover="true"
+            style={{ overflow: 'hidden', cursor: 'pointer' }}
+        >
             <img
                 src={image}
                 alt={name}
@@ -26,8 +30,8 @@ const TeamCard = ({ name, role, image }) => {
             {/* Team member role badge. */}
             <span className="team-role" style={{
                 display: 'inline-block',
-                background: '#e0e7ff',
-                color: 'var(--primary)',
+                background: '#e0e7ff', // Indigo-100
+                color: 'var(--primary)', // Indigo-600
                 borderRadius: '20px',
                 fontWeight: '600',
                 maxWidth: '100%', // Prevent long text from overflowing the card.

@@ -5,6 +5,7 @@ import Services from './sections/Services';
 import Team from './sections/Team';
 import About from './sections/About';
 import Footer from './components/Footer';
+import FluidBackground from './components/FluidBackground';
 import './styles/global.css';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
 
     return (
         <div>
+            <FluidBackground />
             <Navbar />
             <Hero />
             <Services />

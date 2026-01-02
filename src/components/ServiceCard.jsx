@@ -3,10 +3,14 @@ import React from 'react';
 const ServiceCard = ({ title, desc, icon }) => {
     return (
         // Uses a CSS utility class to control responsive padding (larger on desktop, smaller on mobile).
-        <div className="reveal-item card-base service-card-padding" style={{
-            cursor: 'pointer',
-            textAlign: 'left'
-        }}>
+        <div 
+            className="reveal-item card-base service-card-padding" 
+            data-hover="true"
+            style={{
+                cursor: 'pointer',
+                textAlign: 'left'
+            }}
+        >
             {/* Icon wrapper (sizing is controlled via CSS). */}
             <div className="service-icon-box">
                 {icon}

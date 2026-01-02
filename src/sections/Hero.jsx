@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { FaArrowRight, FaTimes, FaCopy, FaCheck } from 'react-icons/fa';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import demoVideo from '../assets/videos/SleepGo_Video_Demo.mp4';
 
 const Hero = () => {
     const [showModal, setShowModal] = useState(false);
     const [copied, setCopied] = useState(false);
     const contactEmail = "contact@sleepgo.com";
+    const { scrollY } = useScroll();
+    const scale = useTransform(scrollY, [0, 300], [1, 0.95]);
 
     const handleCopy = () => {
         navigator.clipboard.writeText(contactEmail);
@@ -50,29 +53,34 @@ const Hero = () => {
                 pointerEvents: 'none'
             }}></div>
 
-            <div className="container hero-container" style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '4rem',
-                alignItems: 'center',
-                position: 'relative',
-                zIndex: 1
-            }}>
+            <motion.div 
+                className="container hero-container" 
+                style={{
+                    scale,
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    gap: '4rem',
+                    alignItems: 'center',
+                    position: 'relative',
+                    zIndex: 1,
+                    maxWidth: '1500px', // Increased container width by 25% to allow video to grow
+                }}
+            >
                 <div className="reveal-item">
-                    <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: '800', lineHeight: 1.1, marginBottom: '1.5rem' }}>
+                    <h1 style={{ fontSize: 'clamp(5rem, 10vw, 7.8rem)', fontWeight: '800', lineHeight: 1.1, marginBottom: '1.5rem' }}>
                         We Code, <br />
                         <span style={{ color: 'var(--primary)' }}>You Sleep.</span>
                     </h1>
-                    <p style={{ fontSize: '1.2rem', color: 'var(--text-light)', marginBottom: '2rem', maxWidth: '500px' }}>
+                    <p style={{ fontSize: '1.5rem', color: 'var(--text-light)', marginBottom: '2rem', maxWidth: '625px' }}>
                         SleepGo delivers high-performance software solutions tailored for your business needs.
                     </p>
 
                     <button
                         onClick={() => setShowModal(true)}
                         style={{
-                            padding: '14px 32px', background: 'var(--primary)', color: 'white',
-                            border: 'none', borderRadius: '50px', fontSize: '1rem', fontWeight: '600', cursor: 'pointer',
-                            display: 'inline-flex', alignItems: 'center', gap: '10px',
+                            padding: '18px 40px', background: 'var(--primary)', color: 'white',
+                            border: 'none', borderRadius: '60px', fontSize: '1.25rem', fontWeight: '600', cursor: 'pointer',
+                            display: 'inline-flex', alignItems: 'center', gap: '12px',
                             transition: 'transform 0.2s'
                         }}
                         onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
@@ -95,7 +103,7 @@ const Hero = () => {
                         style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
                 </div>
-            </div>
+            </motion.div>
 
             {/* Contact modal */}
             {showModal && (
