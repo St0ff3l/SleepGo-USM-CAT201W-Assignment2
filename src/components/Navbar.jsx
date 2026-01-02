@@ -4,10 +4,20 @@ import logo from '../assets/images/Logo.png';
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
 
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
+
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
     const navStyle = {
@@ -18,22 +28,27 @@ const Navbar = () => {
         padding: '1rem 0',
         transition: 'all 0.3s ease',
         display: 'flex',
-        justifyContent: 'center',
-        backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.7)' : 'transparent',
+
+        backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.8)' : 'transparent',
+
         backdropFilter: scrolled ? 'blur(24px)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(24px)' : 'none',
+
         boxShadow: scrolled ? '0 4px 6px -1px rgba(0,0,0,0.05)' : 'none',
         borderBottom: scrolled ? '1px solid rgba(0,0,0,0.05)' : 'none',
     };
 
     const containerStyle = {
         width: '100%',
-        maxWidth: '1200px',
-        padding: '0 24px',
+        maxWidth: '100%',
+        padding: '0 40px',
         display: 'flex',
-        justifyContent: 'space-between',
         alignItems: 'center',
-        // Enable wrapping for mobile devices
-        flexWrap: 'wrap'
+        position: 'relative',
+        height: 'auto',
+        minHeight: '45px',
+        flexWrap: isMobile ? 'wrap' : 'nowrap',
+        justifyContent: isMobile ? 'space-between' : 'flex-start',
     };
 
     const brandStyle = {
@@ -41,7 +56,29 @@ const Navbar = () => {
         alignItems: 'center',
         gap: '12px',
         cursor: 'pointer',
-        textDecoration: 'none'
+        textDecoration: 'none',
+        zIndex: 2,
+        position: 'relative'
+    };
+
+
+    const linksWrapperStyle = isMobile ? {
+        position: 'static',
+        transform: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '1.5rem',
+        width: '100%',
+        justifyContent: 'center',
+        marginTop: '1rem'
+    } : {
+        position: 'absolute',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '6rem',
+        zIndex: 1
     };
 
     const linkStyle = {
@@ -49,9 +86,9 @@ const Navbar = () => {
         color: '#0F172A',
         fontWeight: '600',
         fontSize: '1rem',
-        marginLeft: '1.5rem', // Reduced spacing slightly
         cursor: 'pointer',
-        transition: 'color 0.3s ease'
+        transition: 'color 0.3s ease',
+        whiteSpace: 'nowrap'
     };
 
     return (
@@ -70,13 +107,14 @@ const Navbar = () => {
                     </h1>
                 </div>
 
-                {/* Links - Added overflow handling for small screens */}
-                <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
+                {/* Links */}
+                <div style={linksWrapperStyle}>
                     <a href="#hero" style={linkStyle}>Home</a>
                     <a href="#services" style={linkStyle}>Services</a>
                     <a href="#team" style={linkStyle}>Team</a>
                     <a href="#about" style={linkStyle}>About</a>
                 </div>
+
             </div>
         </nav>
     );
