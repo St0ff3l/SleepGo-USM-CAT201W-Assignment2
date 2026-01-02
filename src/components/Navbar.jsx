@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/global.css'; // 确保引入
+import '../styles/global.css';
+// 1. 引入 Logo 图片
+// 假设 Navbar.jsx 在 src/components/，那么路径应该是 ../assets/images/Logo.png
+import logo from '../assets/images/Logo.png';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -22,10 +25,30 @@ const Navbar = () => {
         boxShadow: scrolled ? '0 4px 6px -1px rgba(0,0,0,0.05)' : 'none',
     };
 
+    //Logo 和 标题的容器样式
+    const brandStyle = {
+        display: 'flex',
+        alignItems: 'center', // 垂直居中
+        gap: '0.1rem',        // Logo 和文字之间的间距
+        cursor: 'pointer'
+    };
+
     return (
         <nav style={navStyle}>
             <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <h1 style={{ fontWeight: '800', fontSize: '1.5rem', color: 'var(--primary)' }}>SleepGo.</h1>
+
+                {/* 2. 修改这里：将 Logo 和 H1 包裹在一起 */}
+                <div style={brandStyle}>
+                    <img
+                        src={logo}
+                        alt="SleepGo Logo"
+                        style={{ height: '60px', width: 'auto' }} // 根据需要调整高度
+                    />
+                    <h1 style={{ fontWeight: '800', fontSize: '1.5rem', color: 'var(--primary)', margin: 0 }}>
+                        SleepGo.
+                    </h1>
+                </div>
+
                 <ul style={{ display: 'flex', gap: '2rem', fontWeight: '600' }}>
                     <li><a href="#hero">Home</a></li>
                     <li><a href="#services">Services</a></li>
