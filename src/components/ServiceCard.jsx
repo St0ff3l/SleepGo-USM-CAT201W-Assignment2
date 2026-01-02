@@ -2,27 +2,23 @@ import React from 'react';
 
 const ServiceCard = ({ title, desc, icon }) => {
     return (
-        <div className="reveal-item card-base" style={{ cursor: 'pointer', textAlign: 'left', padding: '2rem' }}>
-            {/* Icon */}
-            <div style={{
-                fontSize: '2.8rem', // Enlarge icon size
-                marginBottom: '1.2rem',
-                color: 'var(--primary)',
-                background: '#e0e7ff',
-                width: '75px',
-                height: '75px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                borderRadius: '16px',
-            }}>
+        // 使用 CSS 类控制 Padding (电脑大/手机小)
+        <div className="reveal-item card-base service-card-padding" style={{
+            cursor: 'pointer',
+            textAlign: 'left'
+        }}>
+            {/* Icon Container - 使用 CSS 类控制大小 */}
+            <div className="service-icon-box">
                 {icon}
             </div>
 
-            <h3 style={{ fontSize: '1.6rem', fontWeight: 'bold', marginBottom: '0.6rem', color: 'var(--text-main)' }}>
+            {/* Title - 使用 CSS 类控制字体 */}
+            <h3 className="service-title">
                 {title}
             </h3>
-            <p style={{ color: 'var(--text-light)', fontSize: '1.15rem', lineHeight: '1.5' }}>
+
+            {/* Description - 使用 CSS 类控制字体 */}
+            <p className="service-desc">
                 {desc}
             </p>
         </div>

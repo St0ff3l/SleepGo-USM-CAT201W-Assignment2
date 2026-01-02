@@ -42,12 +42,8 @@ const Services = () => {
                 <h2 className="section-title reveal-item">Our Services</h2>
                 <p className="section-subtitle reveal-item">Comprehensive digital solutions</p>
 
-                <div style={{
-                    display: 'grid',
-                    // Key change: Reduced gap to 1.5rem
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                    gap: '1.5rem'
-                }}>
+                {/* 使用 global.css 里定义的类名，不再写死 style */}
+                <div className="services-grid">
                     {services.map((s, index) => (
                         <ServiceCard key={index} {...s} />
                     ))}
