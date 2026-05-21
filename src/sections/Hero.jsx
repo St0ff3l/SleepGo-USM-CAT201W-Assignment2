@@ -72,7 +72,7 @@ const Hero = () => {
                         <span style={{ color: 'var(--primary)' }}>You Sleep.</span>
                     </h1>
                     <p style={{ fontSize: '1.5rem', color: 'var(--text-light)', marginBottom: '2rem', maxWidth: '625px' }}>
-                        SleepGo delivers high-performance software solutions tailored for your business needs.
+                        sleepgo-usm-cat201w-assignment2 delivers high-performance software solutions tailored for your business needs.
                     </p>
 
                     <button

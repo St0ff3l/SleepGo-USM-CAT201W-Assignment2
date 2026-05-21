@@ -99,11 +99,11 @@ const Navbar = () => {
                 <div style={brandStyle} onClick={() => window.scrollTo(0,0)}>
                     <img
                         src={logo}
-                        alt="SleepGo Logo"
+                        alt="sleepgo-usm-cat201w-assignment2 logo"
                         style={{ height: '45px', width: 'auto' }}
                     />
                     <h1 style={{ fontWeight: '800', fontSize: '1.5rem', color: '#4F46E5', margin: 0 }}>
-                        SleepGo
+                        sleepgo-usm-cat201w-assignment2
                     </h1>
                 </div>
 

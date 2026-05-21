@@ -1,6 +1,6 @@
-# SleepGo - Company Homepage
+# Sleepgo-Usm-Cat201w-Assignment2
 
-A responsive single-page company homepage for **SleepGo** (fictional software house), built for **USM CAT201 Assignment 2**.
+A responsive single-page company homepage for **Sleepgo-Usm-Cat201w-Assignment2** (fictional software house), built for **USM CAT201 Assignment 2**.
 
 Tech stack:
 - React 18

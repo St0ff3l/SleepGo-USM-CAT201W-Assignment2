@@ -5,13 +5,13 @@ const About = () => {
         <section id="about">
             {/* Card container (styling is handled by CSS classes rather than inline styles). */}
             <div className="container reveal-item about-card">
-                <h2 className="section-title">About SleepGo</h2>
+                <h2 className="section-title">About sleepgo-usm-cat201w-assignment2</h2>
 
                 {/* Description text (typography is controlled via the CSS class). */}
                 <p className="about-desc">
                     This website is developed as a group assignment for the <strong>CAT201 Integrated Software Development Workshop</strong> course (Semester 1 2025/2026) at Universiti Sains Malaysia.
                     <br /><br />
-                    SleepGo is a fictional software house created to demonstrate our proficiency in <strong>React.js</strong>, <strong>Node.js</strong>, and modern web design principles.
+                    sleepgo-usm-cat201w-assignment2 is a fictional software house created to demonstrate our proficiency in <strong>React.js</strong>, <strong>Node.js</strong>, and modern web design principles.
                 </p>
 
                 {/* Tag badges */}
